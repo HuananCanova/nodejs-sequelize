@@ -63,6 +63,7 @@ exports.findOne = (req, res) =>{
     });
 };
 
+
 exports.update = (req, res) =>{
     const id = req.param.id;
     User.update(req.body, {
