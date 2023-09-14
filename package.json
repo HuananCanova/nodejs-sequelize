@@ -1,7 +1,7 @@
 {
-  "name": "nodejs-postgresql-sequelize",
+  "name": "nodejs-express-sequelize-postgresql",
   "version": "1.0.0",
-  "description": "Estudos em backend - Node e Sequelize - relacional SQL",
+  "description": "Node.js Rest Apis with Express, Sequelize & postgresql",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,21 +9,20 @@
   },
   "keywords": [
     "nodejs",
+    "express",
     "sequelize",
-    "postgres",
-    "restapi",
-    "relational"
+    "rest",
+    "api",
+    "postgresql"
   ],
-  "author": "Huanan Canova - k9a",
+  "author": "Huanan Canova",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "pg": "^8.11.3",
+    "pg": "^8.11.0",
     "pg-hstore": "^2.3.4",
-    "sequelize": "^6.32.1"
-  },
-  "devDependencies": {
-    "nodemon": "^3.0.1"
+    "sequelize": "^6.32.0"
   }
 }
