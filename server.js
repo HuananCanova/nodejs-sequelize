@@ -2,34 +2,32 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-
-const port = 3000;
 const app = express();
 
-var corsOptions ={
-    origin: 'http://localhost:3000'
+var corsOptions = {
+    origin: 'http://localhost:8081'
 };
 
 app.use(cors(corsOptions));
-
 app.use(express.json());
-
-app.use(express.urlencoded({extended:true}))
-
-const db = require("./models");
-db.sequelize.sync()
-  .then(() => {
-    console.log("Synced db.");
-  })
-  .catch((err) => {
-    console.log("Failed to sync db: " + err.message);
-  });
+app.use(express.urlencoded({ extended: true }));
 
 
-app.get('/', (req, res) =>{
-    res.json({messege: "Welcome port 3000"});
+const db = require('./models');
+db.sequelize.sync({ force: true })
+.then(() => {
+    console.log("synced db");
+}).catch((err) => {
+    console.log("Failed to sync db" + err.message);
 });
 
-app.listen(port, ()=>{
-    console.log(`listening on port ${port}`);
+
+app.get("/", (req, res) => {
+    res.json({ message: "Welcome to Huanan application." });
 });
+
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}.`);
+});
+
